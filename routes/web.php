@@ -1,11 +1,15 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\HabitacionController;
 use Illuminate\Support\Facades\Route;
+
+Route::resource('/habitacions', HabitacionController::class);
+
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('inicio');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -18,3 +22,4 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
